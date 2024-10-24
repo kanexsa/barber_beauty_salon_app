@@ -26,4 +26,7 @@ class AppDimensions {
   static const double onboardTitleTextSize = 24.0;
   static const double onboardDescTextSize = 12.0;
   static const double forwardIconsPadding = 32.0;
+
+  static const double buttonWidth = 350.0;
+  static const double buttonHeight = 5.0;
 }

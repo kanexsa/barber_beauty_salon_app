@@ -2,6 +2,7 @@ import 'package:barber_beauty_salon_app/core/constants/app_strings.dart';
 import 'package:barber_beauty_salon_app/core/routing/route_constant.dart';
 import 'package:barber_beauty_salon_app/feature/onboard/presentation/onboard_screen.dart';
 import 'package:barber_beauty_salon_app/feature/signin/presentation/signin_screen.dart';
+import 'package:barber_beauty_salon_app/feature/signup/presentation/signup_screen.dart';
 import 'package:barber_beauty_salon_app/feature/splash/presentation/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,10 @@ class RouteManager {
       case RouteConstant.onboard:
         return MaterialPageRoute(
           builder: (context) => OnBoardScreen(),
+        );
+      case RouteConstant.signup:
+        return MaterialPageRoute(
+          builder: (context) => const SignUpScreen(),
         );
       case RouteConstant.signin:
         return MaterialPageRoute(
