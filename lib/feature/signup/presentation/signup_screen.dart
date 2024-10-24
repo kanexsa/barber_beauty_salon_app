@@ -8,8 +8,8 @@ import 'package:barber_beauty_salon_app/product/widgets/social_media_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,21 +17,14 @@ class SignInScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            alignment: Alignment.center,
-            child: const Column(
-              children: [
-                CustomTextTitle(
-                  title: AppStrings.signIn,
-                ),
-                SizedBox(
-                  height: AppDimensions.defaultSizedBox,
-                ),
-                CustomDescTitleText(
-                  descText: AppStrings.signInDesc,
-                ),
-              ],
-            ),
+          const CustomTextTitle(
+            title: AppStrings.createAccount,
+          ),
+          const SizedBox(
+            height: AppDimensions.defaultSizedBox,
+          ),
+          const CustomDescTitleText(
+            descText: AppStrings.createAccountDesc,
           ),
           const SizedBox(
             height: AppDimensions.defaultSizedBox * 4,
@@ -42,6 +35,19 @@ class SignInScreen extends StatelessWidget {
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(AppStrings.name),
+                SizedBox(
+                  height: AppDimensions.defaultSizedBox / 2,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                      hintText: AppStrings.nameHintText,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)))),
+                ),
+                SizedBox(
+                  height: AppDimensions.defaultSizedBox,
+                ),
                 Text(AppStrings.email),
                 SizedBox(
                   height: AppDimensions.defaultSizedBox / 2,
@@ -74,12 +80,22 @@ class SignInScreen extends StatelessWidget {
             height: AppDimensions.defaultSizedBox / 2,
           ),
           Container(
+            alignment: Alignment.bottomLeft,
             padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+            child: Row(
               children: [
-                Text(
-                  AppStrings.forgotPassword,
+                Checkbox(
+                  checkColor: AppColors.background,
+                  activeColor: AppColors.redSkipText,
+                  value: true,
+                  onChanged: (value) {},
+                ),
+                const Text(
+                  AppStrings.agreeWith,
+                  style: TextStyle(fontSize: AppDimensions.onboardDescTextSize),
+                ),
+                const Text(
+                  AppStrings.termsCondition,
                   style: TextStyle(
                       decoration: TextDecoration.underline,
                       decorationColor: AppColors.redSkipText,
@@ -103,7 +119,7 @@ class SignInScreen extends StatelessWidget {
                         AppDimensions.buttonWidth,
                         AppDimensions.buttonHeight))),
                 child: const Text(
-                  AppStrings.signIn,
+                  AppStrings.signUp,
                   style: TextStyle(color: AppColors.background),
                 ),
               )),
@@ -122,7 +138,7 @@ class SignInScreen extends StatelessWidget {
               ),
               SizedBox(
                 child: Text(
-                  AppStrings.orSignInWith,
+                  AppStrings.orSignUpWith,
                   style: TextStyle(
                       fontSize: AppDimensions.onboardDescTextSize,
                       color: AppColors.dividerColor),
@@ -166,7 +182,7 @@ class SignInScreen extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  _navSignUp(context);
+                  _navSignIn(context);
                 },
                 child: const Text(
                   AppStrings.signIn,
@@ -184,8 +200,8 @@ class SignInScreen extends StatelessWidget {
     );
   }
 
-  void _navSignUp(BuildContext context) {
+  void _navSignIn(BuildContext context) {
     Navigator.of(context)
-        .pushNamedAndRemoveUntil(RouteConstant.signup, (route) => false);
+        .pushNamedAndRemoveUntil(RouteConstant.signin, (route) => false);
   }
 }

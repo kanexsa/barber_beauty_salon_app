@@ -45,7 +45,7 @@ class OnBoardScreen extends StatelessWidget {
               state.currentPage != OnboardPageEnum.third
                   ? TextButton(
                       onPressed: () {
-                        _navSignIn(context);
+                        _navSignUp(context);
                       },
                       child: const Text(
                         AppStrings.skipText,
@@ -106,7 +106,7 @@ class OnBoardScreen extends StatelessWidget {
               onPressed: () {
                 BlocProvider.of<OnboardBloc>(context).add(OnboardNextPage());
                 if (state.currentPage == OnboardPageEnum.third) {
-                  _navSignIn(context);
+                  _navSignUp(context);
                 }
               },
             ),
@@ -116,9 +116,9 @@ class OnBoardScreen extends StatelessWidget {
     );
   }
 
-  void _navSignIn(BuildContext context) {
+  void _navSignUp(BuildContext context) {
     Navigator.of(context)
-        .pushNamedAndRemoveUntil(RouteConstant.signin, (route) => false);
+        .pushNamedAndRemoveUntil(RouteConstant.signup, (route) => false);
   }
 
   Widget _buildPageIndicators(OnboardState state) {
